@@ -1,6 +1,7 @@
 let  buttons = document.querySelectorAll('a');
 let body = document.querySelector('body');
 let btn1= document.querySelector("#click");
+const colorText = document.querySelector(".color-text");
 
         buttons.forEach(btn => {
             btn.addEventListener('click', function(e) {
@@ -26,17 +27,51 @@ let btn1= document.querySelector("#click");
         });
 
 
+    
+      
+        const values = [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+        ];
         
-        btn1.addEventListener('click', randomColor1);
-        
-        function randomColor1() {
-            let randomColorDg = Math.floor(Math.random() * 180);
-            let randomColor1 = Math.floor(Math.random() * 255);
-            let randomColor2 = Math.floor(Math.random() * 255);
-            let randomColor3 = Math.floor(Math.random() * 255);
-        
-            body.style.backgroundColor = `rgb(${randomColor1},${randomColor2},${randomColor3})`;
-            body.style.backgroundImage = `linear-gradient(${randomColorDg}deg, rgb(${randomColor1}, ${randomColor2}, ${randomColor3}) 0%, rgb(${randomColor2}, ${randomColor3}, ${randomColor1}) 46%, rgb(${randomColor3}, ${randomColor1}, ${randomColor2}) 100%)`;
-        }
+        // random color function
+        function getGradient(){
+            let color = "#";
+            for(i=0;i<6;i++){
+              const randomNumber = Math.trunc(Math.random()*values.length);
+              color+=values[randomNumber];
+            }
 
+            return color;
+        }
+        
+        // set color to body
+      function setGradient(){
+        const color1 = getGradient();
+        const color2 = getGradient();
+        const randomDeg = Math.trunc(Math.random()*360);
+        const backGround = `linear-gradient(${randomDeg}deg,${color1},${color2})`
+
+        body.style.background = backGround;
+        colorText.textContent = backGround;
+      }
+        
+
+      setGradient();
+
+      btn1.addEventListener('click',setGradient);
       

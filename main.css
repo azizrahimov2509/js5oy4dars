@@ -33,7 +33,11 @@ a{
     border: 1px solid rgb(0, 255, 251);
 }
 
-
+.color-text{
+    text-transform: uppercase;
+    color: white;
+    font-weight: 500;
+}
 
 span{
  position: absolute;
