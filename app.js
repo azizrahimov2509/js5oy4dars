@@ -48,7 +48,8 @@ const colorText = document.querySelector(".color-text");
           "f",
         ];
         
-        // random color function
+   
+        
         function getGradient(){
             let color = "#";
             for(i=0;i<6;i++){
@@ -58,8 +59,7 @@ const colorText = document.querySelector(".color-text");
 
             return color;
         }
-        
-        // set color to body
+  
       function setGradient(){
         const color1 = getGradient();
         const color2 = getGradient();
